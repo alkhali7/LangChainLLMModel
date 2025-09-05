@@ -6,7 +6,6 @@ from langchain_core.prompts import PromptTemplate
 # from langchain_ollama import OllamaLLM  # instead of ChatOpenAI
 from langchain_ollama import ChatOllama
 
-
 load_dotenv()  # take environment variables from .env.
 
 
@@ -24,15 +23,23 @@ def main():
     1. A short summary
     2. two interesting facts about them
     """
-    
+
     summary_prompt_template = PromptTemplate(
-        input_variables=["information"] , template=summary_template)
-    
-    llm = ChatOllama(temperature=0, model='gemma3:270m')  # using Ollama instead of ChatOpenAI
-    chain = summary_prompt_template | llm  # creating a chain with the prompt and the LLM
-    response = chain.invoke(input={"information": information}) # invoking the chain with the information
-    
+        input_variables=["information"], template=summary_template
+    )
+
+    llm = ChatOllama(
+        temperature=0, model="gemma3:270m"
+    )  # using Ollama instead of ChatOpenAI
+    chain = (
+        summary_prompt_template | llm
+    )  # creating a chain with the prompt and the LLM
+    response = chain.invoke(
+        input={"information": information}
+    )  # invoking the chain with the information
+
     print(response.content)  # printing the response
-    
+
+
 if __name__ == "__main__":
     main()
