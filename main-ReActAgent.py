@@ -30,11 +30,12 @@ output_parser = OutputFixingParser.from_llm(
     llm=llm,
     parser=PydanticOutputParser(pydantic_object=AgentResponse)
 )
-# creating a prompt template with custom ReAct prompt for gpt-4-turbo
+# creating a prompt template with custom ReAct prompt for --gpt-4-turbo--
 # react_prompt_with_format_instructions = PromptTemplate(
 #             template=REACT_PROMPT_FOR_GEMMA,
 #             input_variables=['input','agent_scratchpad','tool_names']).
-#             partia(format_instructions= output_parser.get_format_instructions()
+#             partia(format_instructions= output_parser.get_format_instructions())
+
 from prompt import REACT_PROMPT_FOR_GEMMA
 
 react_prompt_with_format_instructions = PromptTemplate(
