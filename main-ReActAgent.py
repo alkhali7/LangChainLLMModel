@@ -1,4 +1,4 @@
-# this is the main file to run the ReAct agent example
+# this is the main file to create and run a ReAct agent using an llm model and tools
 
 # note for self: uv add python-dotenv in terminal to load environment variables from .env files
 import os  # to access environment variables
